@@ -1,5 +1,25 @@
-let arr1 = [1, 2, 3];
-let arr = [...arr1];
-arr.shift();
+function* g1() {
+  yield* g2();
+  return "1";
+}
 
-console.log(arr1);
+function* g2() {
+  yield* [1, 2, 34];
+  return "3";
+}
+function* g() {
+  yield* g1();
+}
+let iterator = g();
+console.log(iterator.next());
+console.log(iterator.next());
+console.log(iterator.next());
+console.log(iterator.next());
+console.log(iterator.next());
+console.log(iterator.next());
+console.log(iterator.next());
+console.log(iterator.next());
+console.log(iterator.next());
+console.log(iterator.next());
+console.log(iterator.next());
+console.log(iterator.next());

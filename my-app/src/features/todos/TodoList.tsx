@@ -5,7 +5,7 @@ import { useSelector, useDispatch, TypedUseSelectorHook } from "react-redux";
 import { RootState } from "../../app/store";
 
 // Import selector and action from slice:
-import { selectTodos, toggleTodo } from "./todoSlices";
+import { selectTodos, Todo, TodosState, toggleTodo } from "./todoSlices";
 
 // We use RootState we defined earlier
 // to make `useSelector` understand
@@ -22,7 +22,7 @@ export const TodoList = () => {
   // The rest of the code stays the same:
   return (
     <ul>
-      {todos.map((todo) => (
+      {todos.map((todo: Todo) => (
         <li key={todo.id}>
           <input
             type="checkbox"

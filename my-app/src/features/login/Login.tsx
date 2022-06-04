@@ -2,18 +2,8 @@ import React, { Children, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // Import the action from slice:
 import { clearState, loginSelector, submit } from "./loginSlices";
-import { Navigate, Outlet, Route, useNavigate } from "react-router-dom";
+import { Navigate, Route, useNavigate } from "react-router-dom";
 
-// export function PrivateRoute({ children, ...rest }) {
-//   const { isLogin } = useSelector(loginSelector);
-
-//   return (
-//     <Route
-//       {...rest}
-//       render={() => (isLogin ? children : <Navigate to="/" />)}
-//     />
-//   );
-// }
 export const Login = () => {
   const navigate = useNavigate();
   const [input, setInput] = useState({ username: "", password: "" });
@@ -31,6 +21,8 @@ export const Login = () => {
     );
   };
   useEffect(() => {
+    console.log(isLogin);
+
     if (isLogin) {
       dispatch(clearState);
       navigate("/app");

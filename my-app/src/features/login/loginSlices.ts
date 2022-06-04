@@ -18,10 +18,10 @@ const initialState = {
 } as Login;
 
 export const loginSlice = createSlice({
-  name: "todos",
+  name: "login",
   initialState,
   reducers: {
-    submit(state: Login, action: PayloadAction<Login>) {
+    submit(state, action: PayloadAction<Login>) {
       if (
         state.password === action.payload.password &&
         state.username === action.payload.username
@@ -29,7 +29,7 @@ export const loginSlice = createSlice({
         state.isLogin = true;
       }
     },
-    clearState(state: Login, action: PayloadAction<Login>) {
+    clearState(state, action: PayloadAction<Login>) {
       state.isLogin = false;
     },
   },

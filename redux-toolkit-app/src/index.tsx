@@ -1,37 +1,23 @@
+import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
-import { store } from "./app/store";
+import { HistoryRouter as Router } from "redux-first-history/rr6";
 import App from "./App";
-import reportWebVitals from "./reportWebVitals";
+import { history, store } from "./app/store";
 import "./index.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
-import { Login } from "./features/login/Login";
+import reportWebVitals from "./reportWebVitals";
 const container = document.getElementById("root")!;
 const root = createRoot(container);
 
 root.render(
-  <BrowserRouter>
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <Provider store={store}>
-            <Login />
-          </Provider>
-        }
-      />
-      <Route
-        path="/app"
-        element={
-          <Provider store={store}>
-            <App />
-          </Provider>
-        }
-      />
-    </Routes>
-  </BrowserRouter>
+  <React.StrictMode>
+    <Provider store={store}>
+      <Router history={history}>
+        <App />
+      </Router>
+    </Provider>
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

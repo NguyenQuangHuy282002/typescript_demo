@@ -7,13 +7,13 @@ import { RootState } from "../../app/store";
 // types created earlier:
 type TodoId = string;
 
-type Todo = {
+export type Todo = {
   id: TodoId;
   title: string;
   completed: boolean;
 };
 
-type TodosState = {
+export type TodosState = {
   list: Todo[];
 };
 
